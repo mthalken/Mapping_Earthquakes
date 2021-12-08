@@ -1,7 +1,7 @@
 # Files to ignore
 config.js 
 Simple_Map/static/js/config.js 
-
+Mapping_Single_Points/static/js/config.js 
 
 
 # Byte-compiled / optimized / DLL files
