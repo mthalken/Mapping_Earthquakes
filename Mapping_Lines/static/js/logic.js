@@ -54,7 +54,7 @@ cityData.forEach(function(city) {
             color: "orange",
             weight: 4
         })
-        .bindPopup("<h2>" + city.city + ", " + city.state + "</h2> <hr> <h3>Population " + city.population.toLocaleString() + "</h3>")
+        .bindPopup("<h2>Airline: " + feature.airline + "</h2> <hr> <h3>Destination: " + feature.dst + "</h3>")
         .addTo(map);
 });
 

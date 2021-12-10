@@ -2,12 +2,13 @@
 config.js 
 Simple_Map/static/js/config.js 
 Mapping_Single_Points/static/js/config.js 
-
+Screenshot 2021-12-09 164748.png
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
+
 
 # C extensions
 *.so
