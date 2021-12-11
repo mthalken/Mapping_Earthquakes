@@ -127,7 +127,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
 
 
 // Then we add our 'graymap' tile layer to the map.
-streets.addTo(map);
+// streets.addTo(map);
 
 // options for maps style:
 // mapbox/streets-v11
