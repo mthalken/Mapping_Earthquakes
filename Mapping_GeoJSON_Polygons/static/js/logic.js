@@ -24,7 +24,7 @@ let baseMaps = {
 // Create the map object with a center and zoom level.
 let map = L.map('mapid', {
     center: [43.7, -79.3],
-    zoom: 11,
+    zoom: 18,
     layers: [satelliteStreets]
 })
 
@@ -37,11 +37,11 @@ let myStyle = {
 // Pass our map layers into our layers control and add the layers control to the map.
 L.control.layers(baseMaps).addTo(map);
 
-// Accessing the airport GeoJSON URL
-let airportData = "https://raw.githubusercontent.com/mthalken/Mapping_Earthquakes/main/majorAirports.json"
+// Accessing the Toronto neighborhoods GeoJSON URL.
+let torontoHoods = "https://raw.githubusercontent.com/mthalken/Mapping_Earthquakes/main/torontoNeighborhoods.json";
 
 // Grabbing our GeoJSON data.
-d3.json(airportData).then(function(data) {
+d3.json(torontoHoods).then(function(data) {
     console.log(data);
     // Creating a GeoJSON layer with the retrieved data.
     L.geoJSON(data, {
