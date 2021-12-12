@@ -17,19 +17,10 @@
 - You can also see the preliminary code [here](https://github.com/mthalken/Mapping_Earthquakes/tree/main/Prep_Code).
 
 ## Results 
-### The analysis
-- What are two conclusions you can draw?
+![png](https://github.com/mthalken/Mapping_Earthquakes/blob/main/images/initialpage.png)
 
-- What can you conclude?
+![png](https://github.com/mthalken/Mapping_Earthquakes/blob/main/images/initialpage2.png)
 
-- What are some limitations of this dataset?
+![png](https://github.com/mthalken/Mapping_Earthquakes/blob/main/images/initialpage3.png)
 
-- What are some other possible tables and/or graphs that we could create?
-
-## Summary
-
-
-
-
-image link: ![png](link)
-clink link: [here](link)
+![png](https://github.com/mthalken/Mapping_Earthquakes/blob/main/images/layers.png)
