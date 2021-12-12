@@ -44,7 +44,7 @@ function styleInfo(feature) {
     return {
         opacity: 1,
         fillOpacity: 1,
-        fillColor: getColor(feature.properties.mag),
+        fillColor: "#ffae42",
         color: "#000000",
         radius: getRadius(feature.properties.mag),
         stroke: true,
@@ -61,26 +61,6 @@ function getRadius(magnitude) {
     return magnitude * 4;
 }
 
-// This function determines the color of the circle based on the magnitude of the earthquake.
-function getColor(magnitude) {
-    if (magnitude > 5) {
-        return "#ea2c2c";
-    }
-    if (magnitude > 4) {
-        return "#ea822c";
-    }
-    if (magnitude > 3) {
-        return "#ee9c00";
-    }
-    if (magnitude > 2) {
-        return "#eecc00";
-    }
-    if (magnitude > 1) {
-        return "#d4ee00";
-    }
-    return "#98ee00";
-}
-
 // Retrieve the earthquake GeoJSON data.
 d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson").then(function(data) {
     // Creating a GeoJSON layer with the retrieved data.
@@ -89,12 +69,11 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
             console.log(data);
             return L.circleMarker(latlng);
         },
-        style: styleInfo,
-        onEachFeature: function(feature, layer) {
-            layer.bindPopup("Magnitude: " + feature.properties.mag + "<br>Location: " + feature.properties.place);
-        }
+        style: styleInfo
     }).addTo(map);
 });
+
+
 
 
 // options for maps style:

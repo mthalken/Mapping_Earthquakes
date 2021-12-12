@@ -21,6 +21,15 @@ let baseMaps = {
     Satellite: satelliteStreets
 };
 
+// Create the earthquake layer for our map.
+let earthquakes = new L.layerGroup();
+
+// We define an object that contains the overlays.
+// This overlay will be visible all the time.
+let overlays = {
+    Earthquakes: earthquakes
+};
+
 // Create the map object with a center and zoom level.
 let map = L.map('mapid', {
     center: [39.5, -98.5],
@@ -35,7 +44,7 @@ let myStyle = {
 }
 
 // Pass our map layers into our layers control and add the layers control to the map.
-L.control.layers(baseMaps).addTo(map);
+L.control.layers(baseMaps, overlays).addTo(map);
 
 // This function returns the style data for each of the earthquakes we plot on
 // the map. We pass the magnitude of the earthquake into a function
@@ -93,9 +102,39 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
         onEachFeature: function(feature, layer) {
             layer.bindPopup("Magnitude: " + feature.properties.mag + "<br>Location: " + feature.properties.place);
         }
-    }).addTo(map);
+    }).addTo(earthquakes);
+
+    earthquakes.addTo(map);
 });
 
+var legend = L.control({ position: 'bottomright' });
+
+legend.onAdd = function() {
+
+    const magnitudes = [0, 1, 2, 3, 4, 5];
+    const colors = [
+        "#98ee00",
+        "#d4ee00",
+        "#eecc00",
+        "#ee9c00",
+        "#ea822c",
+        "#ea2c2c"
+    ];
+
+    var div = L.DomUtil.create('div', 'info legend'),
+        grades = [0, 10, 20, 50, 100, 200, 500, 1000],
+        labels = [];
+
+    // loop through our density intervals and generate a label with a colored square for each interval
+    for (var i = 0; i < magnitudes.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + colors[i] + '"></i> ' +
+            magnitudes[i] + (magnitudes[i + 1] ? '&ndash;' + magnitudes[i + 1] + '<br>' : '+');
+    }
+    return div;
+};
+
+legend.addTo(map);
 
 // options for maps style:
 // mapbox/streets-v11
